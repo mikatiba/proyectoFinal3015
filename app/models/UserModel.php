@@ -1,62 +1,29 @@
 <?php
 
-class UserModel {
-    private $db; // Objeto de conexión a base de datos
+class ProductModel {
+    public $id;
+    public $nombre;
+    public $suplidor;
+    public $cantidad;
+    public $precio;
 
-    public function __construct($pdo) {
-        $this->db = $pdo;
+    public function save() {
+        // Lógica para guardar un producto en la base de datos
     }
 
-    public function create($data) {
-        $sql = "INSERT INTO usuarios (nombre, email, clave) VALUES (:nombre, :email, :clave)";
-        $stmt = $this->db->prepare($sql);
-        $stmt->bindValue(':nombre', $data['nombre'], PDO::PARAM_STR);
-        $stmt->bindValue(':email', $data['email'], PDO::PARAM_STR);
-        $stmt->bindValue(':clave', password_hash($data['clave'], PASSWORD_DEFAULT), PDO::PARAM_STR);
-        $stmt->execute();
-
-        return $this->db->lastInsertId();
+    public function getAll() {
+        // Lógica para obtener todos los productos de la base de datos
     }
 
-    public function read($id) {
-        $sql = "SELECT * FROM usuarios WHERE id = :id";
-        $stmt = $this->db->prepare($sql);
-        $stmt->bindValue(':id', $id, PDO::PARAM_INT);
-        $stmt->execute();
-
-        return $stmt->fetch(PDO::FETCH_ASSOC);
+    public function find($id) {
+        // Lógica para encontrar un producto por ID
     }
 
-    public function update($data) {
-        $sql = "UPDATE usuarios SET nombre = :nombre, email = :email, clave = :clave WHERE id = :id";
-        $stmt = $this->db->prepare($sql);
-        $stmt->bindValue(':nombre', $data['nombre'], PDO::PARAM_STR);
-        $stmt->bindValue(':email', $data['email'], PDO::PARAM_STR);
-        $stmt->bindValue(':clave', $data['clave'], PDO::PARAM_STR);
-        $stmt->bindValue(':id', $data['id'], PDO::PARAM_INT);
-        $stmt->execute();
-
-        return $stmt->rowCount();
+    public function update($id) {
+        // Lógica para actualizar un producto en la base de datos
     }
 
     public function delete($id) {
-        $sql = "DELETE FROM usuarios WHERE id = :id";
-        $stmt = $this->db->prepare($sql);
-        $stmt->bindValue(':id', $id, PDO::PARAM_INT);
-        $stmt->execute();
-
-        return $stmt->rowCount();
+        // Lógica para eliminar un producto de la base de datos
     }
-
-
-    public function getAll() {
-        $sql = "SELECT * FROM usuarios";
-        $stmt = $this->db->prepare($sql);
-        $stmt->execute();
-    
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
-    }
-    
 }
-
-?>

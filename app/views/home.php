@@ -3,24 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <title>Página de Inicio</title>
-    
-    <?php
-        require_once "public/html_header.php";
-    ?>
-
+    <link href="public/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
     <div class="container">
         
-        <header>
+        <header class="mt-5 mb-4">
             <h1>Bienvenido a Nuestra Aplicación</h1>
             <nav>
-                <ul>
-                    <li><a href=".">Ver Usuarios</a></li>
+                <ul class="nav">
+                    <li class="nav-item"><a class="nav-link" href=".">Ver Usuarios</a></li>
                     <!-- Más enlaces de navegación según sea necesario -->
                 </ul>
-                <ul>
-                    <li><a href="./index.php?url=product/index">Ver Productos</a></li>
+                <ul class="nav">
+                    <li class="nav-item"><a class="nav-link" href="./index.php?url=product/index">Ver Productos</a></li>
                     <!-- Más enlaces de navegación según sea necesario -->
                 </ul>
             </nav>
@@ -30,6 +26,9 @@
             <section>
                 <div>
                     <?php 
+                        // Aquí puedes requerir el archivo Database.php si necesitas interactuar con la base de datos
+                        require_once('./app/config/Database.php');
+                        
                         if (isset($data)) // if Data exist
                         {
                             if (isset($data['message'])) {
@@ -55,9 +54,11 @@
         </main>
     
         <footer>
-            <p>&copy; 2023 Tu Nombre</p>
+            <p>&copy; Mikael Hashem K. Tiba</p>
         </footer>
 
     </div>
+
+    <script src="public/js/bootstrap.min.js"></script>
 </body>
 </html>
