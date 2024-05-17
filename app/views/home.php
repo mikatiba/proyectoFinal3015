@@ -21,7 +21,7 @@
                 </ul>
             </nav>
         </header>
-    
+    <!-- Contenido principal de la página -->
         <main>
             <section>
                 <div>
@@ -46,6 +46,7 @@
                     ?>
                 </div>
             </section>
+            <!-- Sección con una breve descripición de la página -->
             <section class='mt-5'>
                 <h5>Descripción de la Aplicación</h5>
                 <p>Esta es una aplicación web desarrollada en PHP siguiendo el patrón de diseño MVC.</p>
@@ -58,7 +59,5 @@
         </footer>
 
     </div>
-
-    <script src="public/js/bootstrap.min.js"></script>
 </body>
 </html>

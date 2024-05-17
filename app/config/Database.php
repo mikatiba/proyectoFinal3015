@@ -1,12 +1,13 @@
 <?php
 
 class Database {
+    //Datos
     private $host = 'localhost';
     private $db_name = 'inventario';
     private $username = 'root';
     private $password = '';
     private $conn;
-
+    //permite establecer la conexión
     public function connect() {
         $this->conn = null;
         try {
