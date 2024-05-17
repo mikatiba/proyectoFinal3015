@@ -1,12 +1,13 @@
 <?php
 
-require_once './app/config/Database.php';
+require_once('./app/config/Database.php');
+
 
 require_once './app/models/UserModel.php';
 require_once './app/controllers/UserController.php';
 
-// require_once './app/models/ProductModel.php';
-// require_once './app/controllers/ProductController.php';
+require_once './app/models/ProductModel.php';
+require_once './app/controllers/ProductController.php';
 
 // Añadir aquí los controladores y modelos nuevos
 
@@ -53,6 +54,3 @@ if (file_exists('./app/controllers/' . $controller . '.php')) {
 
     require_once './app/views/home.php';
 }
-
-
-?>
